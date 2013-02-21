@@ -1,4 +1,4 @@
-profipsum
+Profipsum
 =========
 
-ipsum for people profiles
+_ipsum for people profiles_
