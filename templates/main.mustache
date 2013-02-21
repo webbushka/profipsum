@@ -1,0 +1,21 @@
+<section>
+    <h1>
+        Profipsum
+    </h1>
+    <h4>
+        your profile content ipsum
+    </h4><input placeholder="how many profiles you want?" class="qty" type="number"> <button class="btn btn-primary generate-btn">Generate</button>
+    <div class="success alert alert-success">
+        <p>
+            <strong>{{batfight}}</strong>
+        </p>
+    </div>
+    <div class="results">
+      {{#items}}
+        <p>{{firstname}} {{lastName}} <br> {{eprefix}} {{firstNameLower}} {{esuffix}} @ {{emailClient}} .com</p>
+      {{/items}}
+    </div>
+</section>
+<footer>
+    &nbsp;
+</footer>
