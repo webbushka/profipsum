@@ -1,0 +1,10 @@
+{
+	"name": "profipsum",
+	"version": "0.0.1",
+	"dependencies": {
+		"eventemitter2": "*",
+		"hogan.js": "*",
+		"underscore": "*",
+		"nodeject": "*"
+	}
+}
