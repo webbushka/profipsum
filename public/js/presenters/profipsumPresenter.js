@@ -6,7 +6,8 @@ var ProfipsumPresenter = (function () {
 	};
 
 	var jQueryEvents = function jQueryEvents($, _, bus, tmpl) {
-		$("body").on("click", ".generate-btn", function () {
+		$("body").on("submit", ".ipsum-form", function (e) {
+			e.preventDefault();
 			var amt = $(".qty").val();
 			bus.emit("ipsum::list", amt, function (err, item) {
 				if (err) {

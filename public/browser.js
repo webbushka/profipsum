@@ -95,6 +95,34 @@ var ProfipsumOperation = (function () {
 })();
 
 module.exports = ProfipsumOperation;
+},{}],3:[function(require,module,exports){
+var ProfipsumController = (function () {
+	return {
+		create: function (_, bus, ops) {
+
+			// -- Wireup application init
+			bus.on("app::init", function () {
+				ops.init(function (err, item) {
+					bus.emit("app::init::completed", err, item);
+				});
+			});
+
+			// -- Wireup listing of all items
+			bus.on("ipsum::list", function (amt, presenter) {
+				ops.list(amt, function (err, item) {
+					if (err) {
+						presenter(err, item);
+					}
+					else {
+						presenter(null, item);
+					}
+				});
+			});
+		}
+	};
+})();
+
+module.exports = ProfipsumController;
 },{}],4:[function(require,module,exports){
 var ProfipsumPresenter = (function () {
 	// -- Shared space between all TodoPresenters created.
@@ -104,7 +132,8 @@ var ProfipsumPresenter = (function () {
 	};
 
 	var jQueryEvents = function jQueryEvents($, _, bus, tmpl) {
-		$("body").on("click", ".generate-btn", function () {
+		$("body").on("submit", ".ipsum-form", function (e) {
+			e.preventDefault();
 			var amt = $(".qty").val();
 			bus.emit("ipsum::list", amt, function (err, item) {
 				if (err) {
@@ -146,34 +175,6 @@ var ProfipsumPresenter = (function () {
 })();
 
 module.exports = ProfipsumPresenter;
-},{}],3:[function(require,module,exports){
-var ProfipsumController = (function () {
-	return {
-		create: function (_, bus, ops) {
-
-			// -- Wireup application init
-			bus.on("app::init", function () {
-				ops.init(function (err, item) {
-					bus.emit("app::init::completed", err, item);
-				});
-			});
-
-			// -- Wireup listing of all items
-			bus.on("ipsum::list", function (amt, presenter) {
-				ops.list(amt, function (err, item) {
-					if (err) {
-						presenter(err, item);
-					}
-					else {
-						presenter(null, item);
-					}
-				});
-			});
-		}
-	};
-})();
-
-module.exports = ProfipsumController;
 },{}],5:[function(require,module,exports){
 // -- Browser Script
 (function (win, $, _, Hogan, tmpls) {

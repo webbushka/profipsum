@@ -102,10 +102,14 @@ section{
 .qty{
     margin-top: 11px;
 }
+.row-fluid [class*="span"]:nth-child(3n+4) {
+    margin-left: 0;
+}
 .results p{
-    display: inline-block;
-    width: 33%;
-    margin: 0 0 20px;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 1px #fff;
+    margin: 0;
+    padding: 0 10px 10px;
 }
 footer{
     height: 60px;
