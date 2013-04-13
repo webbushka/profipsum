@@ -1,21 +1,24 @@
-<section>
-    <h1>
-        Profipsum
-    </h1>
-    <h4>
-        your profile content ipsum
-    </h4><input placeholder="how many profiles you want?" class="qty" type="number"> <button class="btn btn-primary generate-btn">Generate</button>
-    <div class="success alert alert-success">
-        <p>
-            <strong>{{batfight}}</strong>
-        </p>
-    </div>
-    <div class="results">
-      {{#items}}
-        <p>{{firstname}} {{lastName}} <br> {{eprefix}} {{firstNameLower}} {{esuffix}} @ {{emailClient}} .com</p>
-      {{/items}}
-    </div>
+<section class="container-fluid">
+	<h1>Profipsum</h1>
+	<h4>your profile content ipsum</h4>
+	<input placeholder="how many profiles you want?" class="qty" type="number">
+	<button class="btn btn-primary generate-btn">Generate</button>
+	{{#error}}
+		<div class="alert alert-error">
+			<strong>{{error}}</strong>
+		</div>
+	{{/error}}
+	{{#items.0}}
+		<div class="success alert alert-success">
+			<strong>{{batfight}}</strong>
+		</div>
+	<div class="results well text-left">
+		{{#items}}
+			<p>{{firstName}} {{lastName}}<br>{{eprefix}}{{firstNameLower}}{{esuffix}}@{{emailClient}}.com</p>
+		{{/items}}
+	</div>
+	{{/items.0}}
 </section>
 <footer>
-    &nbsp;
+		&nbsp;
 </footer>
