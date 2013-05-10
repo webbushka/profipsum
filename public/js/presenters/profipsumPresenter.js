@@ -1,5 +1,4 @@
 var ProfipsumPresenter = (function () {
-	// -- Shared space between all TodoPresenters created.
 	var renderBody = function renderBody(tmpl, item) {
 		console.log(item);
 		$("body").html(tmpl.main.render(item));
